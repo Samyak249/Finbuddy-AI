@@ -1,5 +1,5 @@
 # Finbuddy-AI
 
-Finbuddy-AI is an AI based personal manager and budget advisor .
+Finbuddy-AI is an AI based personal finance manager and budget advisor .
 
 
