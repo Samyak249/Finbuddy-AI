@@ -1,5 +1,5 @@
 require('dotenv').config();
-const Expense = require('./models/Expense'); // Adjust the path to the model
+const Expense = require('./models/Expense'); 
 const Income = require('./models/Income');
 
 
@@ -14,18 +14,15 @@ const auth = require('./middleware/auth');
 
 const app = express();
 
-// Connect Database
 connectDB();
 
-// Init Middleware
 app.use(express.json({ extended: false }));
 
-// Define Routes
+
 app.use('/api/users', userRoutes);
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/incomes', incomeRoutes);
 
-// Insights Route
 app.get('/api/insights', auth, async (req, res) => {
   try {
     const expenses = await Expense.find({ user: req.user.id });
