@@ -17,7 +17,9 @@ const app = express();
 connectDB();
 
 app.use(express.json({ extended: false }));
-
+// Add this near the top of your server.js
+console.log("Environment variables loaded:", Object.keys(process.env).includes('GROQ_API_KEY'));
+console.log("API Key prefix:", process.env.GROQ_API_KEY.substring(0, 4));
 
 app.use('/api/users', userRoutes);
 app.use('/api/expenses', expenseRoutes);
