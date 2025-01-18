@@ -3,7 +3,9 @@ const Expense = require('./models/Expense');
 const Income = require('./models/Income');
 
 
+
 const express = require('express');
+const cors= require('cors');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/users');
 const expenseRoutes = require('./routes/expenses');
@@ -14,8 +16,9 @@ const auth = require('./middleware/auth');
 
 const app = express();
 
-connectDB();
 
+connectDB();
+app.use(cors());
 app.use(express.json({ extended: false }));
 // Add this near the top of your server.js
 console.log("Environment variables loaded:", Object.keys(process.env).includes('GROQ_API_KEY'));
